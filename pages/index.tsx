@@ -43,12 +43,12 @@ export default function Home({
       </Head>
       <section className={utilStyles.headingMd}>
         <p>
-          Senior Frontend Engineer {" "}
+          Frontend Engineer {" "}
           <Link
             className="text-blue-500 hover:text-blue-800"
-            href="www.ruangguru.com"
+            href="https://www.typedream.com"
           >
-            @Ruangguru
+            @Typedream
           </Link>
         </p>
       </section>

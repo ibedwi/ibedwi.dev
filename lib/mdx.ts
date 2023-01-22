@@ -10,8 +10,6 @@ const articlesPath = path.join(process.cwd(), 'data/writings');
 export async function getSlug() {
   const paths = sync(`${articlesPath}/*.mdx`)
 
-  console.log("getSlug", paths)
-
   return paths.map((path) => {
     // holds the paths to the directory of the article
     const pathContent = path.split('/')
@@ -24,7 +22,7 @@ export async function getSlug() {
 
 export async function getArticleFromSlug(slug) {
   const articleDir = path.join(articlesPath, `${slug}.mdx`)
-  const source = fs.readFileSync(articleDir)
+  const source = fs.readFileSync(articleDir).toString();
   const { content, data } = matter(source)
 
   return {
