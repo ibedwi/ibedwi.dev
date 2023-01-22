@@ -19,13 +19,13 @@ export async function getStaticProps({ params }) {
     mdxOptions: {
       rehypePlugins: [
         rehypeSlug,
-        // [
-        //   rehypeAutolinkHeadings,
-        //   {
-        //     properties: { className: ['anchor'] },
-        //   },
-        //   { behaviour: 'wrap' },
-        // ],
+        [
+          rehypeAutolinkHeadings,
+          {
+            properties: { className: ['anchor'] },
+          },
+          { behaviour: 'wrap' },
+        ],
         rehypeHighlight,
         // rehypeCodeTitles,
       ],
@@ -62,16 +62,6 @@ export default function Blog({ post: { source, frontmatter } }) {
         <Head>
           <title>{frontmatter.title} | My blog</title>
         </Head>
-        {/* <div className="article-container">
-        <h1 className="article-title">{frontmatter.title}</h1>
-        <p className="publish-date">
-          {dayjs(frontmatter.publishedAt).format('MMMM D, YYYY')} &mdash;{' '}
-          {frontmatter.readingTime}
-        </p>
-        <div className="content">
-          <MDXRemote {...source} />
-        </div>
-      </div> */}
         <article>
           <h1 className={utilStyles.headingXl}>{frontmatter.title}</h1>
           <div className={utilStyles.lightText}>
