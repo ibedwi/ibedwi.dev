@@ -57,8 +57,9 @@ export default function Home({
         <ul className={utilStyles.list}>
           {posts.map(({ id, date, title, slug }) => (
             <li className={utilStyles.listItem} key={id}>
-              <Link href={`/posts/${slug}`}>{title}</Link>
-              <br />
+              <h4>
+                <Link href={`/posts/${slug}`}>{title}</Link>
+              </h4>
               <small className={utilStyles.lightText}>
                 <Date dateString={date} />
               </small>
