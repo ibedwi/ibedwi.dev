@@ -20,7 +20,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      posts: articles.reverse(),
+      posts: articles,
     },
   }
 }
@@ -33,7 +33,8 @@ export default function Home({
     date: string
     title: string
     id: string,
-    slug: string
+    slug: string,
+    tags: string[]
   }[]
 }) {
   return (
@@ -55,11 +56,12 @@ export default function Home({
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
         <ul className={utilStyles.list}>
-          {posts.map(({ id, date, title, slug }) => (
+          {posts.map(({ id, date, title, slug, tags }) => (
             <li className={utilStyles.listItem} key={id}>
               <h4>
                 <Link href={`/posts/${slug}`}>{title}</Link>
               </h4>
+              <div>{tags?.map((t) => <span key={t}>{t}</span>)}</div>
               <small className={utilStyles.lightText}>
                 <Date dateString={date} />
               </small>

@@ -33,6 +33,7 @@ export async function getArticleFromSlug(slug) {
       title: data.title ?? "-",
       publishedAt: data.publishedAt,
       readingTime: readingTime(source).text,
+      tags: data.tags.split(", "),
       ...data,
     },
   }
@@ -54,6 +55,7 @@ export async function getAllArticles() {
         ...data,
         slug: articleSlug.replace('.mdx', ''),
         readingTime: readingTime(source).text,
+        tags: data.tags.split(", "),
       },
       ...allArticles,
     ]
