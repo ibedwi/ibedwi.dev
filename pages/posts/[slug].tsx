@@ -8,7 +8,7 @@ import rehypeSlug from 'rehype-slug'
 import rehypeCodeTitles from 'rehype-code-titles';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import utilStyles from '../../styles/utils.module.css';
-import Layout from "../../components/layout";
+import Layout from "../../components/Layout/layout";
 import 'highlight.js/styles/atom-one-dark-reasonable.css'
 export async function getStaticProps({ params }) {
   //fetch the particular file based on the slug

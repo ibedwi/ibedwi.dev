@@ -1,4 +1,5 @@
 {
+  "name": "ibe-blog",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -6,6 +7,8 @@
     "start": "next start"
   },
   "dependencies": {
+    "@vanilla-extract/css": "^1.9.3",
+    "@vanilla-extract/dynamic": "^2.0.3",
     "date-fns": "^2.29.3",
     "dayjs": "^1.11.7",
     "glob": "^8.1.0",
@@ -26,6 +29,7 @@
   "devDependencies": {
     "@types/node": "18.11.17",
     "@types/react": "18.0.26",
+    "@vanilla-extract/next-plugin": "^2.1.1",
     "typescript": "4.9.4"
   }
 }

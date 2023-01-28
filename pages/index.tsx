@@ -1,10 +1,11 @@
 import Head from 'next/head'
-import Layout, { siteTitle } from '../components/layout'
+import Layout, { siteTitle } from '../components/Layout/layout'
 import utilStyles from '../styles/utils.module.css'
 import { getSortedPostsData } from '../lib/posts'
 import Link from 'next/link'
 import Date from '../components/date'
 import { getAllArticles } from '../lib/mdx'
+import { Tag } from '../components/Tag/Tag'
 
 export async function getStaticProps() {
   const articles = await getAllArticles()
@@ -61,7 +62,7 @@ export default function Home({
               <h4>
                 <Link href={`/posts/${slug}`}>{title}</Link>
               </h4>
-              <div>{tags?.map((t) => <span key={t}>{t}</span>)}</div>
+              <div style={{ display: 'flex', flexDirection: 'row' }}>{tags?.map((t) => <><Tag key={t}>{t}</Tag><div style={{ width: '5px' }} /></>)}</div>
               <small className={utilStyles.lightText}>
                 <Date dateString={date} />
               </small>
@@ -72,12 +73,3 @@ export default function Home({
     </Layout>
   )
 }
-
-// export const getStaticProps: GetStaticProps = async () => {
-//   const allPostsData = getSortedPostsData()
-//   return {
-//     props: {
-//       allPostsData
-//     }
-//   }
-// }
