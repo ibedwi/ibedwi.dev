@@ -2,7 +2,7 @@ import { style } from '@vanilla-extract/css';
 
 export const container = style({
   maxWidth: '48rem',
-  padding: '0 1 rem',
+  padding: '1rem 2rem',
   margin: '3rem auto 6rem'
 })
 

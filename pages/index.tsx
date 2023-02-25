@@ -9,12 +9,12 @@ import { Tag } from '../components/Tag/Tag'
 
 export async function getStaticProps() {
   const articles = await getAllArticles()
+  console.log("article", articles)
 
   articles
-    .map((article) => article.data)
     .sort((a, b) => {
-      if (a.data.publishedAt > b.data.publishedAt) return 1
-      if (a.data.publishedAt < b.data.publishedAt) return -1
+      if (a.publishedAt > b.publishedAt) return -1
+      if (a.publishedAt < b.publishedAt) return 1
 
       return 0
     })

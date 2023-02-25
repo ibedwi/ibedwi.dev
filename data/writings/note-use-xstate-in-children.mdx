@@ -1,0 +1,51 @@
+---
+title: How to use XState machine in children component
+date: "2023-01-28"
+publishedAt: "2023-01-28"
+slug: note-how-to-use-xstate-machine-in-children-component
+tags: note
+status: draft
+---
+
+# TL;DR
+
+1. Define the state machine in the parent component
+2. Pass the state machine in the child component as its `props`
+3. Use `useActor` hooks in the child component
+
+```typescript
+// machine.ts
+import { createMachine } from "xstate";
+export const someMachine = createMachine({
+  // state machine definition comes here
+});
+
+export type SomeMachineType = typeof someMachine;
+```
+
+```typescript
+// Parent.tsx
+import {}
+
+function ParentComponent() {
+  const [current, sendEvent, service] = useMachine(someMachine, {});
+
+  return (
+    <ChildComponent machineReference={service}>
+  )
+}
+```
+
+```typescript
+import { InterpreterFrom } from "xstate";
+import type { SomeMachineType } from "/path/to/machine.ts";
+
+type ChildComponentProps = {
+  machineReference: InterpreterFrom<SomeMachineType>;
+};
+
+function ChildComponent(props: PropsWithChildren<ChildComponentProps>) {
+  const [currentMachineFromParent, sendEventFromParent] = useActor(machine);
+  return <>{/* Child Component UI goes here... */}</>;
+}
+```

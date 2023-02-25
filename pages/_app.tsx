@@ -1,5 +1,5 @@
-import { bodyStyle } from '../styles/global.css';
+import '/styles/global.css';
 
 export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} className={bodyStyle} />
+  return <Component {...pageProps} />
 }
